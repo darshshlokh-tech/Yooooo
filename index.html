@@ -34,7 +34,7 @@
   body{
     margin: 0;
     min-height: 100vh;
-    min-height: 100svh;          /* stable on mobile browsers */
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,6 @@
     z-index: 0;
   }
 
-  /* decorative layer — clipped so nothing can cause horizontal scroll */
   .fx{
     position: fixed;
     inset: 0;
@@ -198,7 +197,6 @@
     text-shadow: 0 0 10px var(--neon-soft), 0 0 26px rgba(255, 45, 149, .5);
   }
 
-  /* -------- italic serif neon name -------- */
   h1{
     margin: 0;
     display: inline-block;
@@ -211,16 +209,13 @@
     padding: 0 .06em .12em;
     color: #ffeaf5;
     text-shadow:
-      /* white-hot tube core */
       0 0 2px #ffffff,
       0 0 7px #ffd0e6,
-      /* shallow extrusion */
       0 1px 0 #ff62b4,
       0 2px 0 #e0348f,
       0 3px 0 #b31c72,
       0 4px 0 #8a1456,
       0 7px 14px rgba(0, 0, 0, .9),
-      /* neon bloom */
       0 0 16px rgba(255, 45, 149, .95),
       0 0 38px rgba(255, 45, 149, .72),
       0 0 82px rgba(255, 45, 149, .48);
@@ -291,6 +286,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Added object-position to ensure your face isn't cut off at the top */
+    object-position: center 25%;
     filter: saturate(1.06) contrast(1.04) brightness(.97);
     transform: scale(1.02);
     transition: transform .6s cubic-bezier(.2, .7, .3, 1), filter .6s ease;
@@ -306,7 +303,6 @@
     50%     { transform: scale(1.028); }
   }
 
-  /* the "someone I truly love" line under the heart */
   .heartline{
     margin: 26px auto 0;
     max-width: 22em;
@@ -469,7 +465,6 @@
     .signature{ font-size: 1.8rem; }
     .song-label{ font-size: .82rem; letter-spacing: .22em; }
     .song-embed iframe{ height: 300px; }
-    /* touch devices: no hover lift */
     .song-embed:hover{ transform: none; }
   }
 
@@ -483,7 +478,6 @@
     .song-embed iframe{ height: 260px; }
   }
 
-  /* taller/notched phones in landscape keep things sane */
   @media (max-height: 460px) and (orientation: landscape){
     body{ padding-top: 24px; padding-bottom: 24px; }
     .card{ padding: 28px 26px 26px; }
@@ -539,8 +533,8 @@
       <figure class="photo">
         <div class="heart-glow">
           <div class="heart">
-            <!-- Drop HER photo beside this file and update the filename -->
-            <img src="anousha.jpg" alt="Anousha" onerror="this.remove()">
+            <!-- IMPORTANT: Make sure your image is named anousha.jpg and is in the same folder as this file -->
+            <img src="anousha.jpg" alt="Anousha">
           </div>
         </div>
 
